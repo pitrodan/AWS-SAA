@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+
+echo "==SYNC"
+#exit immediately if any command resturns a non -zero status
+set -e
+
+#Check for Bucket Name
+if [ -z "$1" ]; then
+  echo "There needs to be Bucket Name"
+  exit 1
+  
+fi
+
+BUCKET_NAME=$1
+
+#Check for File Name
+if [ -z "$2" ]; then
+  echo "There needs to be File Name"
+  exit 1
+  
+fi
+
+FILE_NAME_PREFIX=$2
+
+# Generate a random number between 1 and 20 for the number of files
+num_files=$(( (RANDOM % 20) + 1 ))
+
+# Directory to create random files in
+output_dir="/tmp/S3/bash-scripts"
+
+#remove folder if it already exists
+rm -r $output_dir
+
+# Create the output directory if it doesn't exist
+mkdir -p "$output_dir"
+
+
+echo "Creating $num_files random files in $output_dir."
+
+# Loop to create random files
+for ((i=1; i<=num_files; i++)); do
+  # Generate a random file name
+  random_file=$(mktemp "$output_dir/${FILE_NAME_PREFIX}_XXXXXX.txt")
+  
+  # Generate random content and write to the file
+  # Here we use /dev/urandom for random content, truncated to 1024 bytes (1KB)
+  head -c 1024 < /dev/urandom > "$random_file"
+  
+  # Print the file name
+  echo "Created file: $random_file"
+done
+
+tree $output_dir
+
+aws s3 sync $output_dir s3://BUCKET_NAME/files

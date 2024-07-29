@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+echo "==delete objects"
+#exit immediately if any command resturns a non -zero status
+set -e
+
+#Check for Bucket Name
+if [ -z "$1" ]; then
+  echo "There needs to be Bucket Name"
+  exit 1
+  
+fi
+
+BUCKET_NAME=$1
+
+
+aws s3api delete-objects --bucket $BUCKET_NAME

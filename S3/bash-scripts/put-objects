@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+echo ="== put objects"
+
+#Check for Bucket Name
+if [ -z "$1" ]; then
+  echo "There needs to be Bucket Name"
+  exit 1
+  
+fi
+
+BUCKET_NAME=$1
+
+#Check for File Name
+if [ -z "$2" ]; then
+  echo "There needs to be File Name"
+  exit 1
+  
+fi
+
+FILE_NAME_PREFIX=$2
+
+OBJECT_KEY=$(basename "$FILE_NAME_PREFIX")
+
+aws s3api put-object \
+--bucket $BUCKET_NAME \
+--key $OBJECT_KEY \
+--body $FILE_NAME_PREFIX

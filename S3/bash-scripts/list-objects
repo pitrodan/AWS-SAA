@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+echo "==list objects"
+
+if [ -z "$1" ]; then
+  echo "There needs to be Bucket Name"
+  exit 1
+  
+fi
+
+BUCKET_NAME=$1
+
+aws s3api list-objects --bucket $BUCKET_NAME --output text  \
+--bucket $BUCKET_NAME \
+# if want to make bucket in any other region add location constraint
+# create-bucket-configuration="LocationConstraint=ca-central-1" 
