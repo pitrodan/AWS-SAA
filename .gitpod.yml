@@ -2,7 +2,8 @@
 tasks:
   - name: random utils
     before: |
-    sudo apt-get install tree
+    sudo apt-get update
+    sudo apt-get intsall tree
   - name: aws-cli
     env:
      AWS_CLI_AUTO_PROMPT: on-partial
