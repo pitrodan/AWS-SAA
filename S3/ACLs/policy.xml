@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AccessControlPolicy xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Owner>
+    <ID>01655e86ecfcdf63367607a6a2320fa2dfe04fbad7a782caf5f4430502d66a45</ID>
+    <DisplayName>nishitpitroda</DisplayName>
+  </Owner>
+  <AccessControlList>
+    <Grant>
+      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+               xsi:type="Canonical User">
+        <ID>*** Owner-Canonical-User-ID ***</ID> 
+        <DisplayName>display-name</DisplayName>
+
+        <!--Here above goes the col-id of the account 
+        you wanna give permissions to-->
+      </Grantee>
+      <Permission>FULL_CONTROL</Permission>
+    </Grant>
+  </AccessControlList>
+</AccessControlPolicy> 

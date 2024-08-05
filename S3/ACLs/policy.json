@@ -1,0 +1,17 @@
+{
+    "Grants": [
+      {
+        "Grantee": {
+          "DisplayName": "display-name",
+          "ID": "*** Owner-Canonical-User-ID ***",
+          "Type": "CanonicalUser"
+        },
+        "Permission": "FULL_CONTROL"
+      }
+    ],
+    "Owner": {
+      "DisplayName": "nishitpitroda",
+      "ID": "01655e86ecfcdf63367607a6a2320fa2dfe04fbad7a782caf5f4430502d66a45"
+    }
+  }
+  
