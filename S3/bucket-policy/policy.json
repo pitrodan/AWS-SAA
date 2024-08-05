@@ -1,0 +1,21 @@
+
+{
+    "_comment": "Paste the arn of the account/user you wanna give permision to below.",
+    "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+             "AWS": "arn:aws:iam::123456789012:user/" 
+          },
+          "Action":[
+            "s3:ListBucket",
+            "s3:GetObject",
+            "s3:PutObject"
+        ],
+          "Resource": [
+            "arn:aws:s3:::bucket-policy-np-8029",
+            "arn:aws:s3:::bucket-policy-np-8029/*"
+        ]
+       }
+    ]
+ }

@@ -11,7 +11,7 @@
         <ID>*** Owner-Canonical-User-ID ***</ID> 
         <DisplayName>display-name</DisplayName>
 
-        <!--Here above goes the col-id of the account 
+        <!--Here above goes the col-id of the account/user
         you wanna give permissions to-->
       </Grantee>
       <Permission>FULL_CONTROL</Permission>
