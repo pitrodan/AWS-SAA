@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+# Order - VPC IGW SUBNET RT
+
+# Check if an argument is not provided
+if [ -z "$1" ]; then
+    echo "No arguments provided. Please provide an argument."
+else
+    export VPC_ID="$1"
+fi
+
+if [ -z "$2" ]; then
+    echo "No arguments provided. Please provide an argument."
+else
+    export IGW_ID="$2"
+fi
+
+if [ -z "$3" ]; then
+    echo "No arguments provided. Please provide an argument."
+else
+    export SUBNET_ID="$3"
+fi
+
+if [ -z "$4" ]; then
+    echo "No arguments provided. Please provide an argument."
+else
+    export ASS_ID="$4"
+fi
+
+if [ -z "$5" ]; then
+    echo "No arguments provided. Please provide an argument."
+else
+    export RT_ID="$5"
+fi
+
+
+# Deattach IGW
+
+aws ec2 detach-internet-gateway \
+--internet-gateway-id $IGW_ID \
+--vpc-id $VPC_ID
+
+
+# Delete IGW
+
+aws ec2 delete-internet-gateway \
+--internet-gateway-id $IGW_ID
+
+
+# Disass the Rt to subnet
+
+aws ec2 disassociate-route-table \
+--association-id $ASS_ID
+
+
+# Delete subnet
+
+aws ec2 delete-subnet --subnet-id $SUBNET_ID
+
+
+# Delete RT
+
+# aws ec2 delete-route-table --route-table-id $RT_ID
+
+# Delete VPC
+
+aws ec2 delete-vpc --vpc-id $VPC_ID
