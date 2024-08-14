@@ -1,0 +1,19 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Launch a simple ec2 
+Parameters:
+  VpcID:
+    Type: String
+    Default: "vpc-07ac02227c97abb08"
+  ImageID:
+    Type: String
+    Default: "ami-0cf0679c2505ce2f9"
+  SubnetID:
+    Type: String
+    Default: "subnet-0dc3eecf4cc06a890"
+Resources:
+  MyEC2Instance: 
+    Type: AWS::EC2::Instance
+    Properties: 
+      ImageId: !Ref ImageID
+      SubnetId: !Ref SubnetID
+      
