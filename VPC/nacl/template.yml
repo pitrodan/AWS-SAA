@@ -3,13 +3,13 @@ Description: Launch a simple ec2
 Parameters:
   VpcID:
     Type: String
-    Default: "vpc-07ac02227c97abb08"
+    Default: vpc-00a09c5b31a47a53e
   ImageID:
     Type: String
-    Default: "ami-0cf0679c2505ce2f9"
+    Default: ami-0b07bdf22b8cdc061
   SubnetID:
     Type: String
-    Default: "subnet-0dc3eecf4cc06a890"
+    Default: subnet-00c823ed597a378aa
 Resources:
   MyEC2Instance: 
     Type: AWS::EC2::Instance
